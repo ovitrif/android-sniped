@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="contentPadding">12dp</dimen>
+    <dimen name="contentPadding2x">24dp</dimen>
+    <dimen name="contentPaddingButton">11dp</dimen>
+
+    <dimen name="buttonStroke">1.5dp</dimen>
+    <dimen name="buttonCornerRadius">3dp</dimen>
+
+</resources>

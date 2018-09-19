@@ -1,0 +1,36 @@
+<resources>
+
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/buttonColor</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:windowBackground">@color/appBg</item>
+        <item name="android:statusBarColor">@color/appSystemBars</item>
+        <item name="android:navigationBarColor">@color/appSystemBars</item>
+
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/slide_right</item>
+        <item name="android:windowExitTransition">@android:transition/slide_left</item>
+
+        <item name="materialButtonStyle">@style/AppTheme.Button</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme" />
+
+    <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.Button.Dark" parent="AppTheme.Button">
+        <item name="android:textColor">@color/colorDark</item>
+        <item name="colorAccent">@color/appBg</item>
+    </style>
+
+</resources>

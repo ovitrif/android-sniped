@@ -1,0 +1,28 @@
+# Android
+
+# Generated files
+bin/
+gen/
+
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file
+local.properties
+
+# Log Files
+*.log
+
+# IDEs
+*.iml
+.idea/**
+!.idea/codeStyleSettings.xml
+projectFilesBackup/
+.navigation/
+captures/
+.externalNativeBuild
+proguard/
+
+# Keystore files
+*.jks

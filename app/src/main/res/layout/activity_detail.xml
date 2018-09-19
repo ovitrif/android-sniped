@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/root_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_bar" />
+
+    <LinearLayout
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dataTextView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/contentPadding2x"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryLight"
+            android:padding="@dimen/contentPadding" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/userNameLayoutView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/contentPadding"
+            android:layout_marginStart="@dimen/contentPadding"
+            app:errorEnabled="true">
+
+            <EditText
+                android:id="@+id/userNameFieldView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/input_user_name"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.button.MaterialButton
+            android:id="@+id/getBtn"
+            style="@style/AppTheme.Button.Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/contentPadding2x"
+            android:layout_marginEnd="@dimen/contentPaddingButton"
+            android:layout_marginStart="@dimen/contentPaddingButton"
+            android:layout_marginTop="@dimen/contentPadding2x"
+            android:text="@string/btn_get"
+            android:theme="@style/AppTheme.Button.Dark"
+            app:backgroundTint="@color/appBg"
+            app:cornerRadius="@dimen/buttonCornerRadius"
+            app:rippleColor="@color/colorPrimaryLight"
+            app:strokeColor="@color/colorDark"
+            app:strokeWidth="@dimen/buttonStroke" />
+
+    </LinearLayout>
+
+</LinearLayout>
