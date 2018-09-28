@@ -13,7 +13,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 /**
- * Main application component for Dagger@.
+ * Main application component for Dagger2.
  * Declares the globally available application singletons in the dependency injection graph.
  */
 @Singleton

@@ -16,8 +16,8 @@ import dagger.Provides
 import javax.inject.Singleton
 
 /**
- * Main application module for Dagger@.
- * Declares provider functions for the application singletons.
+ * Main application module for Dagger2.
+ * Defines provider functions for the application singletons.
  */
 
 @Module
