@@ -1,7 +1,7 @@
 package com.sniped.ui.validator
 
 /**
- * Base validator interface.
+ * Defines a validator for user input.
  */
 interface Validator {
 
