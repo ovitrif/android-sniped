@@ -19,7 +19,6 @@ import javax.inject.Singleton
  * Main application module for Dagger2.
  * Defines provider functions for the application singletons.
  */
-
 @Module
 open class AppModule(private val context: Context) {
 
