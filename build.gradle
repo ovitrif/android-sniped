@@ -1,7 +1,7 @@
 apply from: "$rootDir/gradle/versioning.gradle"
 
 buildscript {
-    ext.kotlin_version = '1.2.70'
+    ext.kotlin_version = '1.2.71'
     ext.support_version = '28.0.0-rc02'
     ext.espresso_version = '3.0.1'
     ext.retrofit_version = '2.3.0'
@@ -17,7 +17,7 @@ buildscript {
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.android.tools.build:gradle:3.3.0-alpha11'
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha12'
     }
 }
 
