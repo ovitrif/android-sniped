@@ -14,7 +14,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         multiDexEnabled true
-        versionCode 1
+        versionCode versioning.getVersionCode()
         versionName '1.0.0'
 
         renderscriptTargetApi 19
