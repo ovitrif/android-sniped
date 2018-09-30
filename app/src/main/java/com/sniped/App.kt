@@ -17,16 +17,24 @@ open class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        initDagger()
-        attachFlipper()
+        init()
     }
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
+        installMultiDex()
+    }
+
+    protected open fun installMultiDex() {
         MultiDex.install(this)
     }
 
-    protected open fun initDagger() {
+    protected open fun init() {
+        initDagger()
+        attachFlipper()
+    }
+
+    private fun initDagger() {
         appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
         appComponent.inject(this)
     }
