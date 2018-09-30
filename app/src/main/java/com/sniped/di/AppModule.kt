@@ -20,7 +20,7 @@ import javax.inject.Singleton
  * Defines provider functions for the application singletons.
  */
 @Module
-open class AppModule(private val context: Context) {
+class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
@@ -32,7 +32,7 @@ open class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    open fun provideApiService(
+    fun provideApiService(
             gson: Gson): ApiService {
         val apiUri = context.getString(R.string.api)
         val apiServiceBuilder = ApiServiceBuilder(
