@@ -6,16 +6,16 @@ import io.reactivex.Single
 import io.reactivex.disposables.Disposable
 
 /**
- * Subscribes with empty consumers.
+ * Subscribes to Single with empty consumers.
  */
 fun <T : Any> Single<T>.subscribeEmpty(): Disposable = subscribe({}, {})
 
 /**
- * Subscribes with empty consumers.
+ * Subscribes to Completable with empty consumers.
  */
 fun <T : Any> Completable.subscribeEmpty(): Disposable = subscribe({}, {})
 
 /**
- * Subscribes with empty consumers.
+ * Subscribes to Observable with empty consumers.
  */
 fun <T : Any> Observable<T>.subscribeEmpty(): Disposable = subscribe({}, {})

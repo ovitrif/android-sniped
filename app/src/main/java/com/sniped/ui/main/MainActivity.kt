@@ -48,8 +48,6 @@ class MainActivity : BaseActivity(), IMain.View {
     @OnClick(R.id.detailNavBtn)
     fun onDetailNavBtnClick() = presenter.onDetailNavBtnClick()
 
-    override fun setDetailBtnBgColor(color: Int) = with(detailNavBtn) { setBackgroundColor(color) }
-
     private fun initView() {
         setSupportActionBar(toolbar)
         supportActionBar?.setTitle(R.string.main_title)
