@@ -3,23 +3,19 @@ package com.sniped.ui.main.detail
 import com.sniped.R
 import com.sniped.core.Threads
 import com.sniped.extensions.subscribeEmpty
-import com.sniped.ui.main.MainNavigator
-import com.sniped.ui.main.detail.acts.GetUserByNameAct
+import com.sniped.ui.BasePresenter
+import com.sniped.ui.main.detail.domain.GetUserByNameAct
 import com.sniped.ui.main.detail.validator.MinLengthValidator
-import io.reactivex.disposables.CompositeDisposable
+import com.sniped.ui.navigator.BackNavigator
 import javax.inject.Inject
 
 class DetailPresenter @Inject constructor(
         private val view: IDetail.View,
         private val getUserByNameAct: GetUserByNameAct,
         private val threads: Threads,
-        private val mainNavigator: MainNavigator) : IDetail.Presenter {
+        private val mainNavigator: BackNavigator) : BasePresenter(), IDetail.Presenter {
 
     override fun onGetButtonClick() {
-
-    override fun onShow() {
-    }
-
         if (MinLengthValidator(view.userName).isValid()) {
             view.clearInputError()
 
@@ -37,8 +33,4 @@ class DetailPresenter @Inject constructor(
     }
 
     override fun onBackPressed() = mainNavigator.navigate()
-
-    override fun onHide() {
-        jobsBag.clear()
-    }
 }
