@@ -2,8 +2,8 @@ package com.sniped
 
 import android.app.Application
 import android.content.Context
-import android.support.multidex.BuildConfig
-import android.support.multidex.MultiDex
+import androidx.multidex.BuildConfig
+import androidx.multidex.MultiDex
 import com.facebook.soloader.SoLoader
 import com.facebook.sonar.android.AndroidSonarClient
 import com.facebook.sonar.android.utils.SonarUtils

@@ -25,7 +25,7 @@
             android:background="@color/primaryLight"
             android:padding="@dimen/gutter" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/userNameLayoutView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,9 +39,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/input_user_name"
                 android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <android.support.design.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/getBtn"
             style="@style/AppTheme.Button.Dark"
             android:layout_width="match_parent"

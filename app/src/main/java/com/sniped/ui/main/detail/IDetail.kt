@@ -1,6 +1,6 @@
 package com.sniped.ui.main.detail
 
-import android.support.annotation.StringRes
+import androidx.annotation.StringRes
 import com.sniped.ui.Presentable
 
 interface IDetail {
