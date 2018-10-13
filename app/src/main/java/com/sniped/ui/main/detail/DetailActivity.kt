@@ -28,16 +28,13 @@ class DetailActivity : BaseActivity(), IDetail.View {
                 .navigatorModule(NavigatorModule(this))
                 .build()
         presenter = component.presenter()
-        initView()
-    }
 
-    override fun onResume() {
-        super.onResume()
+        initView()
         presenter.onShow()
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         presenter.onHide()
     }
 

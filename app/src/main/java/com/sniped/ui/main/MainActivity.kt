@@ -9,7 +9,6 @@ import com.sniped.ui.BaseActivity
 import com.sniped.ui.main.di.DaggerMainComponent
 import com.sniped.ui.main.di.MainModule
 import com.sniped.ui.navigator.NavigatorModule
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_app_bar.*
 
 class MainActivity : BaseActivity(), IMain.View {
@@ -23,21 +22,17 @@ class MainActivity : BaseActivity(), IMain.View {
 
         val component = DaggerMainComponent.builder()
                 .appComponent(App.getAppComponent(this))
-                .mainModule(MainModule(this, this))
+                .mainModule(MainModule(this))
                 .navigatorModule(NavigatorModule(this))
                 .build()
         presenter = component.presenter()
 
         initView()
-    }
-
-    override fun onResume() {
-        super.onResume()
         presenter.onShow()
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         presenter.onHide()
     }
 
@@ -46,7 +41,7 @@ class MainActivity : BaseActivity(), IMain.View {
     }
 
     @OnClick(R.id.detailNavBtn)
-    fun onDetailNavBtnClick() = presenter.onDetailNavBtnClick()
+    fun onDetailButtonClick() = presenter.onDetailButtonClick()
 
     private fun initView() {
         setSupportActionBar(toolbar)

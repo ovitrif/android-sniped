@@ -17,13 +17,12 @@ class MainPresenterTest : MockitoTest() {
     @Before
     fun setUp() {
         presenter = MainPresenter(
-                view,
                 detailNavigator)
     }
 
     @Test
-    fun whenClickingDetailNavButton_shouldNavigateToDetailView() {
-        presenter.onDetailNavBtnClick()
+    fun whenClickingDetailButton_shouldNavigateToDetailView() {
+        presenter.onDetailButtonClick()
 
         verify(detailNavigator).navigate()
     }
