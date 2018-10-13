@@ -1,24 +1,9 @@
 static def tryConvertToInt(String number) {
     try {
         return Integer.parseInt(number)
-    } catch (NumberFormatException e) {
+    } catch (NumberFormatException ignored) {
         return 0
     }
-}
-
-def getLastCommitHash = {
-    def cmd = 'git rev-parse --short HEAD'
-    return cmd.execute().text.trim()
-}
-
-def getLastTag = {
-    def cmd = 'git describe --tags --abbrev=0'
-    return cmd.execute().text.trim()
-}
-
-def getCommitCountOfLastTag = {
-    def cmd = 'git rev-list ' + getLastTag() + ' --count'
-    return tryConvertToInt(cmd.execute().text.trim())
 }
 
 def getCommitCount = {
@@ -26,15 +11,6 @@ def getCommitCount = {
     return tryConvertToInt(cmd.execute().text.trim())
 }
 
-def getCommitCountSinceLastTag = {
-    def count = getCommitCount() - getCommitCountOfLastTag()
-    return count.toString()
-}
-
 ext.versioning = [
         getVersionCode: { getCommitCount() },
-
-        getVersionName: { getLastTag() + '.' + getCommitCountSinceLastTag() },
-
-        getCommitHashString: { '"' + getLastCommitHash() + '"' }
 ]

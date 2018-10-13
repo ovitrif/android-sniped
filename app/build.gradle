@@ -7,7 +7,6 @@ apply from: "$rootDir/gradle/versioning.gradle"
 
 android {
     compileSdkVersion 28
-    buildToolsVersion '28.0.2'
 
     defaultConfig {
         applicationId 'com.sniped'
@@ -95,7 +94,7 @@ dependencies {
     implementation "com.android.support:design:$support_version"
     implementation "com.android.support:cardview-v7:$support_version"
     implementation "com.android.support:palette-v7:$support_version"
-    // Retrofit2 + RxJava2
+    // Retrofit2 & RxJava2
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
@@ -116,9 +115,9 @@ dependencies {
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
     // Flipper
-    debugImplementation 'com.facebook.flipper:flipper:0.6.16'
+    debugImplementation 'com.facebook.flipper:flipper:0.7.2'
     // Groupie
-    implementation 'com.xwray:groupie:2.0.3'
+    implementation 'com.xwray:groupie:2.1.0'
     // Test Libs
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.robolectric:robolectric:3.6.1'
