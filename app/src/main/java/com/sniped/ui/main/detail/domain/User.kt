@@ -1,4 +1,4 @@
-package com.sniped.domain.entities
+package com.sniped.ui.main.detail.domain
 
 data class User(
         val id: String,

@@ -6,7 +6,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 /**
- * Defines schedulers for multithreading in reactive code.
+ * Exposes schedulers for multithreading.
  */
 class Threads constructor(private val mainThread: Handler) {
 

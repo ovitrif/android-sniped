@@ -24,7 +24,7 @@ class DetailActivity : BaseActivity(), IDetail.View {
 
         val component = DaggerDetailComponent.builder()
                 .appComponent(App.getAppComponent(this))
-                .detailModule(DetailModule(this, this))
+                .detailModule(DetailModule(this))
                 .navigatorModule(NavigatorModule(this))
                 .build()
         presenter = component.presenter()
@@ -44,14 +44,13 @@ class DetailActivity : BaseActivity(), IDetail.View {
     override fun onBackPressed() = presenter.onBackPressed()
 
     @OnClick(R.id.getBtn)
-    fun onGetClick() = presenter.onGetClick()
+    fun onGetButtonClick() = presenter.onGetButtonClick()
 
     override val userName get() = userNameFieldView.text.toString()
 
     override var dataText
         get() = dataTextView.text.toString()
         set(value) = with(dataTextView) { text = value }
-
 
     override fun setInputError(errorMessage: Int) = with(userNameLayoutView) { error = getString(errorMessage) }
 

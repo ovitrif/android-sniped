@@ -1,4 +1,4 @@
-package com.sniped.ui.main.detail.acts
+package com.sniped.ui.main.detail.domain
 
 import com.sniped.api.ApiService
 import javax.inject.Inject

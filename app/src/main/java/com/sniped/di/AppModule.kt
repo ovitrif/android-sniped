@@ -32,8 +32,7 @@ class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideApiService(
-            gson: Gson): ApiService {
+    fun provideApiService(gson: Gson): ApiService {
         val apiUri = context.getString(R.string.api)
         val apiServiceBuilder = ApiServiceBuilder(
                 apiUri,

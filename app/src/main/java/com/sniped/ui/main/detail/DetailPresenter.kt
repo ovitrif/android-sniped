@@ -15,12 +15,11 @@ class DetailPresenter @Inject constructor(
         private val threads: Threads,
         private val mainNavigator: MainNavigator) : IDetail.Presenter {
 
-    private val jobsBag = CompositeDisposable()
+    override fun onGetButtonClick() {
 
     override fun onShow() {
     }
 
-    override fun onGetClick() {
         if (MinLengthValidator(view.userName).isValid()) {
             view.clearInputError()
 

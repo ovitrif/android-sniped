@@ -4,10 +4,9 @@ import com.sniped.ui.Presentable
 
 interface IMain {
 
-    interface View {
-    }
+    interface View
 
     interface Presenter : Presentable {
-        fun onDetailNavBtnClick()
+        fun onDetailButtonClick()
     }
 }

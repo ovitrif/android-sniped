@@ -13,7 +13,7 @@ interface IDetail {
     }
 
     interface Presenter : Presentable {
-        fun onGetClick()
+        fun onGetButtonClick()
         fun onBackPressed()
     }
 }

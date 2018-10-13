@@ -5,6 +5,6 @@ package com.sniped.ui
  */
 interface Presentable {
 
-    fun onShow()
-    fun onHide()
+    fun onShow() = Unit
+    fun onHide() = Unit
 }

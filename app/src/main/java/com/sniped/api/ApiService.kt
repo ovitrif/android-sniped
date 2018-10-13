@@ -1,6 +1,6 @@
 package com.sniped.api
 
-import com.sniped.domain.entities.User
+import com.sniped.ui.main.detail.domain.User
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
