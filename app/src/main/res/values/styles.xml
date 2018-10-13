@@ -1,17 +1,18 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
         <item name="colorButtonNormal">@color/buttonColor</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
         <item name="android:windowBackground">@color/appBg</item>
-        <item name="android:statusBarColor">@color/appSystemBars</item>
-        <item name="android:navigationBarColor">@color/appSystemBars</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+        <item name="android:statusBarColor">@color/statusBar</item>
+        <item name="android:navigationBarColor">@color/navigationBar</item>
 
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowEnterTransition">@android:transition/slide_right</item>
@@ -29,7 +30,7 @@
     </style>
 
     <style name="AppTheme.Button.Dark" parent="AppTheme.Button">
-        <item name="android:textColor">@color/colorDark</item>
+        <item name="android:textColor">@color/textDim</item>
         <item name="colorAccent">@color/appBg</item>
     </style>
 

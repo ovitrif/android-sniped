@@ -20,17 +20,17 @@
             android:id="@+id/dataTextView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/contentPadding2x"
+            android:layout_marginBottom="@dimen/gutterDouble"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryLight"
-            android:padding="@dimen/contentPadding" />
+            android:background="@color/primaryLight"
+            android:padding="@dimen/gutter" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/userNameLayoutView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/contentPadding"
-            android:layout_marginStart="@dimen/contentPadding"
+            android:layout_marginEnd="@dimen/gutter"
+            android:layout_marginStart="@dimen/gutter"
             app:errorEnabled="true">
 
             <EditText
@@ -46,16 +46,16 @@
             style="@style/AppTheme.Button.Dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/contentPadding2x"
-            android:layout_marginEnd="@dimen/contentPaddingButton"
-            android:layout_marginStart="@dimen/contentPaddingButton"
-            android:layout_marginTop="@dimen/contentPadding2x"
+            android:layout_marginBottom="@dimen/gutterDouble"
+            android:layout_marginEnd="@dimen/buttonGutter"
+            android:layout_marginStart="@dimen/buttonGutter"
+            android:layout_marginTop="@dimen/gutterDouble"
             android:text="@string/btn_get"
             android:theme="@style/AppTheme.Button.Dark"
             app:backgroundTint="@color/appBg"
             app:cornerRadius="@dimen/buttonCornerRadius"
-            app:rippleColor="@color/colorPrimaryLight"
-            app:strokeColor="@color/colorDark"
+            app:rippleColor="@color/primaryLight"
+            app:strokeColor="@color/textDim"
             app:strokeWidth="@dimen/buttonStroke" />
 
     </LinearLayout>

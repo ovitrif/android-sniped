@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lorem_ipsum_title" translatable="false">Lorem Ipsum Title</string>
+    <string name="lorem_ipsum" translatable="false">
+        Contrary to popular belief, Lorem Ipsum is not simply random text.
+        It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+        Lorem Ipsum comes from The Extremes of Good and Evil by Cicero.
+        This book is a treatise on the theory of ethics, very popular during the Renaissance.
+    </string>
+</resources>

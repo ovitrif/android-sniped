@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- CONVENTION: <<namespace_>module<_specific>>_screen>_control>_label>_state> -->
-<!-- Use generic-to-specific pattern, as a rule of thumb, the priority should be: what_which_how -->
 <resources>
-    <!-- App -->
-    <string name="app_name">Sniped</string>
+    <!-- Use generic-to-specific pattern, as a rule of thumb, the priority should be: what_which_how -->
     <!-- Main -->
     <string name="main_title">Main</string>
     <string name="main_detail_btn">Open Detail View</string>

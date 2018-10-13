@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="contentPadding">12dp</dimen>
-    <dimen name="contentPadding2x">24dp</dimen>
-    <dimen name="contentPaddingButton">11dp</dimen>
+    <dimen name="gutterQuarter">3dp</dimen>
+    <dimen name="gutterHalf">6dp</dimen>
+    <dimen name="gutter">12dp</dimen>
+    <dimen name="gutterDouble">24dp</dimen>
 
+    <dimen name="appBarShadow">2.5dp</dimen>
+
+    <dimen name="buttonGutter">11dp</dimen>
     <dimen name="buttonStroke">1.5dp</dimen>
     <dimen name="buttonCornerRadius">3dp</dimen>
 

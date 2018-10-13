@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <string name="app_name" translatable="false">Sniped</string>
     <string name="api" translatable="false">https://api.github.com/</string>
+
 </resources>
