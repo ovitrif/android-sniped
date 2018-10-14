@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.view_app_bar.*
 
 class DetailActivity : BaseActivity(), IDetail.View {
 
-    private lateinit var presenter: IDetail.Presenter
+    override lateinit var presenter: IDetail.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,11 +31,6 @@ class DetailActivity : BaseActivity(), IDetail.View {
 
         initView()
         presenter.onShow()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        presenter.onHide()
     }
 
     override fun onBackPressed() = presenter.onBackPressed()
