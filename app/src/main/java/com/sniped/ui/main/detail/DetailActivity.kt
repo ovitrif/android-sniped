@@ -23,7 +23,7 @@ class DetailActivity : BaseActivity(), IDetail.View {
         ButterKnife.bind(this)
 
         val component = DaggerDetailComponent.builder()
-                .appComponent(App.getAppComponent(this))
+                .appComponent(App.component)
                 .detailModule(DetailModule(this))
                 .navigatorModule(NavigatorModule(this))
                 .build()

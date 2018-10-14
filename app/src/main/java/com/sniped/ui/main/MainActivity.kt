@@ -7,7 +7,6 @@ import com.sniped.App
 import com.sniped.R
 import com.sniped.ui.BaseActivity
 import com.sniped.ui.main.di.DaggerMainComponent
-import com.sniped.ui.main.di.MainModule
 import com.sniped.ui.navigator.NavigatorModule
 import kotlinx.android.synthetic.main.view_app_bar.*
 
@@ -21,8 +20,7 @@ class MainActivity : BaseActivity(), IMain.View {
         ButterKnife.bind(this)
 
         val component = DaggerMainComponent.builder()
-                .appComponent(App.getAppComponent(this))
-                .mainModule(MainModule(this))
+                .appComponent(App.component)
                 .navigatorModule(NavigatorModule(this))
                 .build()
         presenter = component.presenter()

@@ -25,9 +25,9 @@ interface AppComponent {
     fun inject(broadcastReceiver: BroadcastReceiver)
     fun inject(service: Service)
 
-    fun gson(): Gson
     fun context(): Context
+    fun gson(): Gson
     fun apiService(): ApiService
-    fun sharedPreferences(): SharedPreferences
     fun threads(): Threads
+    fun sharedPreferences(): SharedPreferences
 }

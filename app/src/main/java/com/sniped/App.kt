@@ -2,7 +2,6 @@ package com.sniped
 
 import android.app.Application
 import android.content.Context
-import androidx.multidex.BuildConfig
 import androidx.multidex.MultiDex
 import com.facebook.soloader.SoLoader
 import com.facebook.sonar.android.AndroidSonarClient
@@ -12,8 +11,6 @@ import com.sniped.di.AppModule
 import com.sniped.di.DaggerAppComponent
 
 open class App : Application() {
-
-    protected lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -35,8 +32,8 @@ open class App : Application() {
     }
 
     private fun initDagger() {
-        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
-        appComponent.inject(this)
+        component = DaggerAppComponent.builder().appModule(AppModule(this)).build()
+        component.inject(this)
     }
 
     private fun attachFlipper() {
@@ -49,7 +46,6 @@ open class App : Application() {
     }
 
     companion object {
-
-        fun getAppComponent(context: Context) = (context.applicationContext as App).appComponent
+        lateinit var component: AppComponent
     }
 }

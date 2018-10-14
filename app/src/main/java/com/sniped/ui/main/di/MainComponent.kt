@@ -9,7 +9,7 @@ import dagger.Component
 @ActivityScope
 @Component(
         dependencies = [AppComponent::class],
-        modules = [MainModule::class, NavigatorModule::class])
+        modules = [NavigatorModule::class])
 interface MainComponent {
 
     fun presenter(): MainPresenter

@@ -45,9 +45,9 @@ class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideSharedPreferences(): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+    fun provideThreads() = Threads(Handler(Looper.getMainLooper()))
 
     @Provides
     @Singleton
-    fun provideThreads() = Threads(Handler(Looper.getMainLooper()))
+    fun provideSharedPreferences(): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 }
