@@ -86,4 +86,4 @@ TODO: Add link to CONTRIBUTING.md
 ## License
 Distributed under the MIT license. See [LICENSE][license-url] for details.
 
-[license-url]: https://github.com/ovitrif/android-sniped-seed/blob/master/LICENSE
+[license-url]: https://github.com/ovitrif/android-sniped/blob/master/LICENSE
