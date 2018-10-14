@@ -4,12 +4,12 @@ import io.reactivex.disposables.CompositeDisposable
 
 abstract class BasePresenter : Presentable {
 
-    protected val jobsBag = CompositeDisposable()
+    protected val disposeBag = CompositeDisposable()
 
     override fun onShow() {
     }
 
     override fun onHide() {
-        jobsBag.clear()
+        disposeBag.clear()
     }
 }

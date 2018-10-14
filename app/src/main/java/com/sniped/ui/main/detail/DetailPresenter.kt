@@ -13,24 +13,24 @@ class DetailPresenter @Inject constructor(
         private val view: IDetail.View,
         private val getUserByNameAct: GetUserByNameAct,
         private val threads: Threads,
-        private val mainNavigator: BackNavigator) : BasePresenter(), IDetail.Presenter {
+        private val backNavigator: BackNavigator) : BasePresenter(), IDetail.Presenter {
 
     override fun onGetButtonClick() {
         if (MinLengthValidator(view.userName).isValid()) {
             view.clearInputError()
 
-            val getUserByNameJob = getUserByNameAct.execute(view.userName)
+            val asyncJob = getUserByNameAct.execute(view.userName)
                     .subscribeOn(threads.io())
                     .observeOn(threads.ui())
                     .doOnSuccess {
                         view.dataText = it.toString()
                     }
                     .subscribeEmpty()
-            jobsBag.add(getUserByNameJob)
+            disposeBag.add(asyncJob)
         } else {
             view.setInputError(R.string.validation_min_length_3)
         }
     }
 
-    override fun onBackPressed() = mainNavigator.navigate()
+    override fun onBackPressed() = backNavigator.navigate()
 }
