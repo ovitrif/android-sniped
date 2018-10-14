@@ -12,5 +12,5 @@ def getCommitCount = {
 }
 
 ext.versioning = [
-        getVersionCode: { getCommitCount() },
+        versionCode: getCommitCount(),
 ]

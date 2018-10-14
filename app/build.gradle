@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'jacoco-android'
 
 apply from: "$rootDir/gradle/versioning.gradle"
 
@@ -13,8 +14,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         multiDexEnabled true
-        versionCode versioning.getVersionCode()
-        versionName '1.0.0'
+        versionCode versioning.versionCode
+        versionName project.version
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
@@ -33,9 +34,18 @@ android {
         dexOptions.javaMaxHeapSize '3g'
     }
 
+    flavorDimensions 'flavortype'
+
+    productFlavors {
+        free {
+            dimension 'flavortype'
+        }
+    }
+
     buildTypes {
         debug {
             // testCoverageEnabled = true
+            applicationIdSuffix '.dev'
             signingConfig signingConfigs.debug
         }
         release {
@@ -46,18 +56,6 @@ android {
 
     testOptions {
         unitTests.includeAndroidResources = true
-    }
-
-    flavorDimensions 'flavortype'
-
-    productFlavors {
-        dev {
-            dimension 'flavortype'
-            applicationIdSuffix '.dev'
-        }
-        rel {
-            dimension 'flavortype'
-        }
     }
 
     compileOptions {
@@ -100,7 +98,7 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     implementation "com.squareup.retrofit2:retrofit-mock:$retrofit_version"
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    debugImplementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.9.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
@@ -115,7 +113,7 @@ dependencies {
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
     // Flipper
-    debugImplementation 'com.facebook.flipper:flipper:0.7.2'
+    debugImplementation 'com.facebook.flipper:flipper:0.8.1'
     // Groupie
     implementation 'com.xwray:groupie:2.1.0'
     // Test Libs

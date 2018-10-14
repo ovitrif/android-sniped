@@ -1,5 +1,3 @@
-apply from: "$rootDir/gradle/versioning.gradle"
-
 buildscript {
     ext.kotlin_version = '1.2.71'
     ext.androidx_version = '1.0.0'
@@ -18,6 +16,7 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
     }
 }
 
@@ -29,6 +28,8 @@ allprojects {
         maven { url 'https://jitpack.io' }
         maven { url 'https://maven.google.com' }
     }
+
+    project.version = '1.0.0'
 }
 
 task clean(type: Delete) {
