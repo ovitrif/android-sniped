@@ -7,6 +7,9 @@ import android.os.Looper
 import android.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.sniped.BuildConfig
+import com.sniped.Debugger
+import com.sniped.DevDebugger
 import com.sniped.R
 import com.sniped.api.ApiService
 import com.sniped.api.ApiServiceBuilder
@@ -32,11 +35,14 @@ class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideApiService(gson: Gson): ApiService {
+    fun provideApiService(
+            gson: Gson,
+            debugger: Debugger): ApiService {
         val apiUri = context.getString(R.string.api)
         val apiServiceBuilder = ApiServiceBuilder(
                 apiUri,
-                gson)
+                gson,
+                debugger)
 
         return apiServiceBuilder
                 .build()
@@ -50,4 +56,8 @@ class AppModule(private val context: Context) {
     @Provides
     @Singleton
     fun provideSharedPreferences(): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+
+    @Provides
+    @Singleton
+    fun provideDebugger() = if (BuildConfig.DEBUG) DevDebugger() else Debugger.NULL
 }

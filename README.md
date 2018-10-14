@@ -1,4 +1,5 @@
 # android-sniped
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)][license-url]
 
 ## Introduction
 
@@ -63,7 +64,7 @@ TODO: Describe and show how to build your code and run the tests.
 
 ## To Do
 - [x] Add short intro and explain the meaning behind the S.N.I.P.E.D. name
-- [ ] Completely integrate Flipper
+- [x] Completely integrate Flipper
 - [ ] Fill in base documentation
 - [ ] Document project structure and idea
 - [ ] Document adding a new feature
@@ -81,3 +82,8 @@ TODO: Add link to changelog file
 
 ## Contribute
 TODO: Add link to CONTRIBUTING.md
+
+## License
+Distributed under the MIT license. See [LICENSE][license-url] for details.
+
+[license-url]: https://github.com/ovitrif/android-sniped-seed/blob/master/LICENSE

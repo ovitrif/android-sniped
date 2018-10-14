@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
+import com.sniped.Debugger
 import com.sniped.api.ApiService
 import com.sniped.core.Threads
 import dagger.Component
@@ -30,4 +31,5 @@ interface AppComponent {
     fun apiService(): ApiService
     fun threads(): Threads
     fun sharedPreferences(): SharedPreferences
+    fun debugger(): Debugger
 }

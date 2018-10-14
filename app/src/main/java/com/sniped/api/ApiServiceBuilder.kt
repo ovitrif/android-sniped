@@ -2,11 +2,10 @@ package com.sniped.api
 
 import com.google.gson.Gson
 import com.sniped.BuildConfig
-import com.sniped.core.config.AppConfig.SERVER_LOGGING_LEVEL
+import com.sniped.Debugger
 import com.sniped.core.config.AppConfig.SERVER_TIMEOUT_READ
 import com.sniped.core.config.AppConfig.SERVER_TIMEOUT_WRITE
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,7 +17,8 @@ import java.util.concurrent.TimeUnit
  */
 class ApiServiceBuilder(
         private val apiUri: String,
-        private val gson: Gson) {
+        private val gson: Gson,
+        private val debugger: Debugger) {
 
     fun build(): Retrofit {
         val httpClient = OkHttpClient.Builder()
@@ -27,7 +27,7 @@ class ApiServiceBuilder(
         httpClient.writeTimeout(SERVER_TIMEOUT_WRITE, TimeUnit.SECONDS)
 
         if (BuildConfig.DEBUG) {
-            httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(SERVER_LOGGING_LEVEL))
+            debugger.attachToNetwork(httpClient)
         }
 
         return Retrofit.Builder().baseUrl(apiUri)
