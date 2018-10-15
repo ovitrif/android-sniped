@@ -137,3 +137,5 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-web:$espresso_version"
     androidTestImplementation "androidx.annotation:annotation:$androidx_version"
 }
+
+apply from: "$rootDir/gradle/jacocoKotlin.gradle"
