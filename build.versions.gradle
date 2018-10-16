@@ -1,0 +1,19 @@
+private static def getCommitCount() {
+    def cmd = 'git rev-list HEAD --count'
+    try {
+        return Integer.parseInt(cmd.execute().text.trim())
+    } catch (NumberFormatException ignored) {
+        return 0
+    }
+}
+
+ext.app = [
+        versionCode: getCommitCount(),
+        versionName: '1.0.0',
+]
+
+ext.kotlin_version = '1.2.71'
+ext.androidx_version = '1.0.0'
+ext.espresso_version = '3.1.0-beta02'
+ext.retrofit_version = '2.4.0'
+ext.play_services_version = '12.0.1'

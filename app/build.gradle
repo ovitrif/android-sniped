@@ -4,8 +4,6 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'jacoco-android'
 
-apply from: "$rootDir/gradle/versioning.gradle"
-
 android {
     compileSdkVersion 28
 
@@ -14,8 +12,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         multiDexEnabled true
-        versionCode versioning.versionCode
-        versionName project.version
+        versionCode app.versionCode
+        versionName app.versionName
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
