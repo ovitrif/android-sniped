@@ -1,0 +1,8 @@
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.mavenCentral()
+    handler.maven { url 'https://maven.google.com' }
+    handler.maven { url 'https://plugins.gradle.org/m2/' }
+}
+ext.addRepos = this.&addRepos
