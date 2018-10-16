@@ -35,7 +35,7 @@ open class App : Application() {
     }
 
     private fun attachFlipper() {
-        if (BuildConfig.DEBUG) component.debugger().attachToApp(this)
+        if (BuildConfig.DEBUG) Debugger.attachToApp(this)
     }
 
     companion object {

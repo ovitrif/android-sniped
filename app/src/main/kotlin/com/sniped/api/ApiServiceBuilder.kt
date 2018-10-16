@@ -17,8 +17,7 @@ import java.util.concurrent.TimeUnit
  */
 class ApiServiceBuilder(
         private val apiUri: String,
-        private val gson: Gson,
-        private val debugger: Debugger) {
+        private val gson: Gson) {
 
     fun build(): Retrofit {
         val httpClient = OkHttpClient.Builder()
@@ -26,9 +25,7 @@ class ApiServiceBuilder(
         httpClient.readTimeout(SERVER_TIMEOUT_READ, TimeUnit.SECONDS)
         httpClient.writeTimeout(SERVER_TIMEOUT_WRITE, TimeUnit.SECONDS)
 
-        if (BuildConfig.DEBUG) {
-            debugger.attachToNetwork(httpClient)
-        }
+        if (BuildConfig.DEBUG) Debugger.attachToNetwork(httpClient)
 
         return Retrofit.Builder().baseUrl(apiUri)
                 .addConverterFactory(GsonConverterFactory.create(gson))

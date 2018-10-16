@@ -1,15 +1,34 @@
 package com.sniped
 
 import android.app.Application
+import com.facebook.flipper.android.AndroidFlipperClient
+import com.facebook.flipper.android.utils.FlipperUtils
+import com.facebook.flipper.plugins.inspector.DescriptorMapping
+import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
+import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
+import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
+import com.facebook.soloader.SoLoader
+import com.sniped.core.config.AppConfig.SERVER_LOGGING_LEVEL
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 
-interface Debugger {
+object Debugger {
 
-    fun attachToApp(app: Application) = Unit
+    private val networkPlugin = NetworkFlipperPlugin()
 
-    fun attachToNetwork(okHttpClientBuilder: OkHttpClient.Builder) = Unit
+    fun attachToApp(app: Application) {
+        SoLoader.init(app, false)
 
-    companion object {
-        val NULL = object : Debugger {}
+        if (FlipperUtils.shouldEnableFlipper(app)) {
+            val client = AndroidFlipperClient.getInstance(app)
+            client.addPlugin(InspectorFlipperPlugin(app, DescriptorMapping.withDefaults()))
+            client.addPlugin(networkPlugin)
+            client.start()
+        }
+    }
+
+    fun attachToNetwork(okHttpClientBuilder: OkHttpClient.Builder) {
+        okHttpClientBuilder.addInterceptor(HttpLoggingInterceptor().setLevel(SERVER_LOGGING_LEVEL))
+        okHttpClientBuilder.addNetworkInterceptor(FlipperOkhttpInterceptor(networkPlugin))
     }
 }

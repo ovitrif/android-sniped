@@ -31,5 +31,4 @@ interface AppComponent {
     fun apiService(): ApiService
     fun threads(): Threads
     fun sharedPreferences(): SharedPreferences
-    fun debugger(): Debugger
 }
