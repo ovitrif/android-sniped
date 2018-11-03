@@ -12,8 +12,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         multiDexEnabled true
-        versionCode app.versionCode
-        versionName app.versionName
+        versionCode app_version_code
+        versionName app_version_name
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
@@ -132,3 +132,4 @@ dependencies {
 }
 
 apply from: "$rootDir/gradle/jacocoKotlin.gradle"
+apply from: "$rootDir/gradle/logUnitTestResultsTask.gradle"

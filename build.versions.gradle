@@ -7,10 +7,8 @@ private static def getCommitCount() {
     }
 }
 
-ext.app = [
-        versionCode: getCommitCount(),
-        versionName: '1.0.0',
-]
+ext.app_version_code = getCommitCount()
+ext.app_version_name = '1.0.0'
 
 ext.androidx_version = '1.0.0'
 ext.butterknife_version = '9.0.0-rc1'

@@ -11,6 +11,9 @@ buildscript {
     }
 }
 
+version = app_version_name
+group = 'com.sniped'
+
 allprojects {
     addRepos(repositories)
 }
