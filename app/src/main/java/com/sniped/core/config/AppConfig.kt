@@ -1,7 +1,5 @@
 package com.sniped.core.config
 
-import okhttp3.logging.HttpLoggingInterceptor
-
 /**
  * Application configuration constants.
  */

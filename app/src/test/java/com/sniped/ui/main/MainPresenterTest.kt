@@ -1,6 +1,6 @@
 package com.sniped.ui.main
 
-import com.nhaarman.mockito_kotlin.verify
+import com.nhaarman.mockitokotlin2.verify
 import com.sniped.test.MockitoTest
 import com.sniped.ui.main.detail.DetailNavigator
 import org.junit.Before

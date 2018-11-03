@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="gutterQuarter">3dp</dimen>
-    <dimen name="gutterHalf">6dp</dimen>
     <dimen name="gutter">12dp</dimen>
     <dimen name="gutterDouble">24dp</dimen>
 
