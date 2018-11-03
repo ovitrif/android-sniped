@@ -1,17 +1,8 @@
 buildscript {
-    ext.kotlin_version = '1.2.71'
-    ext.androidx_version = '1.0.0'
-    ext.espresso_version = '3.1.0-beta02'
-    ext.retrofit_version = '2.4.0'
-    ext.play_services_version = '12.0.1'
+    apply from: 'build.repos.gradle'
+    apply from: 'build.versions.gradle'
 
-    repositories {
-        jcenter()
-        google()
-        mavenCentral()
-        maven { url 'https://maven.google.com' }
-        maven { url 'https://plugins.gradle.org/m2/' }
-    }
+    addRepos(repositories)
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -21,15 +12,7 @@ buildscript {
 }
 
 allprojects {
-    repositories {
-        jcenter()
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-        maven { url 'https://maven.google.com' }
-    }
-
-    project.version = '1.0.0'
+    addRepos(repositories)
 }
 
 task clean(type: Delete) {

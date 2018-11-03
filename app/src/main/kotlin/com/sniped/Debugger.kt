@@ -12,11 +12,11 @@ import com.sniped.core.config.AppConfig.SERVER_LOGGING_LEVEL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
-class DevDebugger : Debugger {
+object Debugger {
 
     private val networkPlugin = NetworkFlipperPlugin()
 
-    override fun attachToApp(app: Application) {
+    fun attachToApp(app: Application) {
         SoLoader.init(app, false)
 
         if (FlipperUtils.shouldEnableFlipper(app)) {
@@ -27,7 +27,7 @@ class DevDebugger : Debugger {
         }
     }
 
-    override fun attachToNetwork(okHttpClientBuilder: OkHttpClient.Builder) {
+    fun attachToNetwork(okHttpClientBuilder: OkHttpClient.Builder) {
         okHttpClientBuilder.addInterceptor(HttpLoggingInterceptor().setLevel(SERVER_LOGGING_LEVEL))
         okHttpClientBuilder.addNetworkInterceptor(FlipperOkhttpInterceptor(networkPlugin))
     }
