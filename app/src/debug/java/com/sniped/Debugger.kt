@@ -11,6 +11,10 @@ import com.facebook.soloader.SoLoader
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
+/**
+ * Debugging and logging handler.
+ * The implementation is exclusive for debug builds.
+ */
 object Debugger {
 
     private val networkPlugin = NetworkFlipperPlugin()
