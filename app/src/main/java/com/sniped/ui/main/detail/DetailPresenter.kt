@@ -7,6 +7,7 @@ import com.sniped.ui.BasePresenter
 import com.sniped.ui.main.detail.domain.GetUserByNameAct
 import com.sniped.ui.main.detail.validator.MinLengthValidator
 import com.sniped.ui.navigator.BackNavigator
+import io.reactivex.rxkotlin.plusAssign
 import javax.inject.Inject
 
 class DetailPresenter @Inject constructor(
@@ -19,14 +20,13 @@ class DetailPresenter @Inject constructor(
         if (MinLengthValidator(view.userName).isValid()) {
             view.clearInputError()
 
-            val asyncJob = getUserByNameAct.execute(view.userName)
+            disposeBag += getUserByNameAct.execute(view.userName)
                     .subscribeOn(threads.io())
                     .observeOn(threads.ui())
                     .doOnSuccess {
                         view.dataText = it.toString()
                     }
                     .subscribeEmpty()
-            disposeBag.add(asyncJob)
         } else {
             view.setInputError(R.string.validation_min_length_3)
         }

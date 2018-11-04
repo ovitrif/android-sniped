@@ -8,10 +8,13 @@ import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.soloader.SoLoader
-import com.sniped.core.config.AppConfig.SERVER_LOGGING_LEVEL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
+/**
+ * Debugging and logging handler.
+ * The implementation is exclusive for debug builds.
+ */
 object Debugger {
 
     private val networkPlugin = NetworkFlipperPlugin()
@@ -28,7 +31,7 @@ object Debugger {
     }
 
     fun attachToNetwork(okHttpClientBuilder: OkHttpClient.Builder) {
-        okHttpClientBuilder.addInterceptor(HttpLoggingInterceptor().setLevel(SERVER_LOGGING_LEVEL))
+        okHttpClientBuilder.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         okHttpClientBuilder.addNetworkInterceptor(FlipperOkhttpInterceptor(networkPlugin))
     }
 }

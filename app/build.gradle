@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'jacoco-android'
 
 android {
     compileSdkVersion 28
@@ -12,8 +11,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         multiDexEnabled true
-        versionCode app.versionCode
-        versionName app.versionName
+        versionCode app_version_code
+        versionName app_version_name
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
@@ -24,17 +23,12 @@ android {
             }
         }
 
-        sourceSets {
-            test.java.srcDirs += 'src/test/kotlin'
-            androidTest.java.srcDirs += 'src/androidTest/kotlin'
-        }
-
         dexOptions.javaMaxHeapSize '3g'
     }
 
     buildTypes {
         debug {
-            // testCoverageEnabled = true
+            testCoverageEnabled = true
             applicationIdSuffix '.dev'
             signingConfig signingConfigs.debug
         }
@@ -53,6 +47,8 @@ android {
     }
 
     testOptions {
+        execution 'ANDROID_TEST_ORCHESTRATOR'
+        animationsDisabled true
         unitTests.includeAndroidResources = true
     }
 
@@ -126,6 +122,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     // UI Test Libs
+    androidTestUtil 'androidx.test:orchestrator:1.1.0'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test:rules:1.1.0'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
@@ -136,4 +133,5 @@ dependencies {
     androidTestImplementation "androidx.annotation:annotation:$androidx_version"
 }
 
-apply from: "$rootDir/gradle/jacocoKotlin.gradle"
+apply from: "gradle/jacoco.gradle"
+apply from: "gradle/testLogs.gradle"
