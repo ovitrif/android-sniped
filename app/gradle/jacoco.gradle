@@ -69,7 +69,7 @@ project.afterEvaluate {
 
             executionData = files([
                     "$project.buildDir/jacoco/${testTaskName}.exec",
-                    "$project.buildDir/outputs/code-coverage/connected/flavors/$variant.flavorName/coverage.ec"
+                    "$project.buildDir/outputs/code-coverage/connected/flavors/${variant.flavorName.toUpperCase()}/coverage.ec"
             ])
         }
     }
