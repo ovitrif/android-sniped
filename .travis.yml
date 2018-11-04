@@ -41,7 +41,8 @@ cache:
 #  - adb shell input keyevent 82 &
 
 script:
-  - ./gradlew clean testFreeDebugUnitTestCoverage # connectedCheck
+  - ./gradlew clean jacocoFreeDebugReport # connectedCheck -P ui-tests
 
 after_success:
+  - rm -rf app/build/reports/coverage/ # Remove default ui test coverage reports
   - bash <(curl -s https://codecov.io/bash)

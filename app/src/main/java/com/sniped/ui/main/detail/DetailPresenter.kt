@@ -14,9 +14,9 @@ class DetailPresenter @Inject constructor(
         private val view: IDetail.View,
         private val getUserByNameAct: GetUserByNameAct,
         private val threads: Threads,
-        private val backNavigator: BackNavigator) : BasePresenter(), IDetail.Presenter {
+        private val backNavigator: BackNavigator) : BasePresenter() {
 
-    override fun onGetButtonClick() {
+    fun onGetButtonClick() {
         if (MinLengthValidator(view.userName).isValid()) {
             view.clearInputError()
 
@@ -32,5 +32,5 @@ class DetailPresenter @Inject constructor(
         }
     }
 
-    override fun onBackPressed() = backNavigator.navigate()
+    fun onBackPressed() = backNavigator.navigate()
 }
