@@ -134,4 +134,4 @@ dependencies {
 }
 
 apply from: "gradle/jacoco.gradle"
-apply from: "gradle/testLogs.gradle"
+apply from: "gradle/testLogging.gradle"
