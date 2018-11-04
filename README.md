@@ -1,3 +1,5 @@
+<img align="right" width="180" height="180" src="https://raw.githubusercontent.com/ovitrif/android-sniped/master/assets/logo.svg?sanitize=true">
+
 # android-sniped
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)][license-url]
 
