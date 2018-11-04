@@ -41,7 +41,7 @@ cache:
 #  - adb shell input keyevent 82 &
 
 script:
-  - ./gradlew clean build testFreeDebugUnitTestCoverage # connectedCheck
+  - ./gradlew clean testFreeDebugUnitTestCoverage # connectedCheck
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
