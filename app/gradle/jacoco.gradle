@@ -9,15 +9,23 @@ tasks.withType(Test) {
 }
 
 project.afterEvaluate {
+    // pass "ui-tests" argument to include UI tests in the report. E.g.:
+    // ./gradlew jacocoFreeDebugReport -P ui-tests
+    def isIncludingUiTests = project.hasProperty('ui-tests')
 
     android.applicationVariants.all { variant ->
         def variantName = variant.name
-        def testTaskName = "test${variantName.capitalize()}UnitTest"
-        def uiTestCoverageTaskName = "create${variantName.capitalize()}CoverageReport"
+        def variantNameCapitalized = variantName.capitalize()
+        def testTaskName = "test${variantNameCapitalized}UnitTest"
+        def requiredTasks = ["$testTaskName"]
 
-        tasks.create(name: "${testTaskName}Coverage", type: JacocoReport, dependsOn: ["$testTaskName", "$uiTestCoverageTaskName"]) {
+        if (isIncludingUiTests) {
+            requiredTasks += "create${variantNameCapitalized}CoverageReport"
+        }
+
+        tasks.create(name: "jacoco${variantNameCapitalized}Report", type: JacocoReport, dependsOn: requiredTasks) {
             group = "Reporting"
-            description = "Generate Jacoco coverage reports for the ${variantName.capitalize()} build."
+            description = "Generate Jacoco coverage reports for the $variantNameCapitalized build."
 
             reports {
                 html.enabled = true
@@ -60,17 +68,16 @@ project.afterEvaluate {
             def kotlinClasses = fileTree(dir: "$buildDir/tmp/kotlin-classes/$variantName", excludes: fileFilter)
             classDirectories = files([javaClasses, kotlinClasses])
 
-            sourceDirectories = files([
-                    "$project.projectDir/src/main/java",
-                    "$project.projectDir/src/$variantName/java",
-                    "$project.projectDir/src/main/kotlin",
-                    "$project.projectDir/src/$variantName/kotlin",
-            ])
+            sourceDirectories = files(android.sourceSets.main.java.srcDirs)
 
-            executionData = files([
-                    "$project.buildDir/jacoco/${testTaskName}.exec",
-                    "$project.buildDir/outputs/code-coverage/connected/flavors/${variant.flavorName.toUpperCase()}/coverage.ec"
-            ])
+            def executionDataFiles = ["$project.buildDir/jacoco/${testTaskName}.exec"]
+
+            if (isIncludingUiTests) {
+                def flavorNameUpperCase = variant.flavorName.toUpperCase()
+                executionDataFiles += "$project.buildDir/outputs/code-coverage/connected/flavors/$flavorNameUpperCase/coverage.ec"
+            }
+
+            executionData = files(executionDataFiles)
         }
     }
 }
