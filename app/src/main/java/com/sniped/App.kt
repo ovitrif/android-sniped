@@ -3,7 +3,6 @@ package com.sniped
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
-import com.sniped.core.Action
 import com.sniped.di.AppComponent
 import com.sniped.di.AppModule
 import com.sniped.di.DaggerAppComponent
@@ -26,7 +25,7 @@ open class App : Application() {
 
     protected open fun init() {
         initDagger()
-        attachFlipper()
+        attachDebugger()
     }
 
     private fun initDagger() {
@@ -34,7 +33,7 @@ open class App : Application() {
         component.inject(this)
     }
 
-    private fun attachFlipper() {
+    private fun attachDebugger() {
         if (BuildConfig.DEBUG) Debugger.attachToApp(this)
     }
 
