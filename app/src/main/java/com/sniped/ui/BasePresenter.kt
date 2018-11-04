@@ -4,7 +4,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 abstract class BasePresenter : Presentable {
 
-    protected val disposeBag = CompositeDisposable()
+    internal val disposeBag = CompositeDisposable()
 
     override fun onShow() {
     }
