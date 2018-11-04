@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'jacoco-android'
 
 android {
     compileSdkVersion 28
@@ -29,7 +28,7 @@ android {
 
     buildTypes {
         debug {
-            // testCoverageEnabled = true
+            testCoverageEnabled = true
             applicationIdSuffix '.dev'
             signingConfig signingConfigs.debug
         }
@@ -48,6 +47,8 @@ android {
     }
 
     testOptions {
+        execution 'ANDROID_TEST_ORCHESTRATOR'
+        animationsDisabled true
         unitTests.includeAndroidResources = true
     }
 
@@ -121,6 +122,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     // UI Test Libs
+    androidTestUtil 'androidx.test:orchestrator:1.1.0'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test:rules:1.1.0'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
@@ -131,5 +133,5 @@ dependencies {
     androidTestImplementation "androidx.annotation:annotation:$androidx_version"
 }
 
-apply from: "$rootDir/gradle/jacocoKotlin.gradle"
-apply from: "$rootDir/gradle/logUnitTestResultsTask.gradle"
+apply from: "gradle/jacoco.gradle"
+apply from: "gradle/testLogs.gradle"
