@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.view_app_bar.*
 
 class MainActivity : BaseActivity(), IMain.View {
 
-    override lateinit var presenter: IMain.Presenter
+    override lateinit var presenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

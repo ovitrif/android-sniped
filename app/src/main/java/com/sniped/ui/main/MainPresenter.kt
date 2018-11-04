@@ -5,7 +5,7 @@ import com.sniped.ui.main.detail.DetailNavigator
 import javax.inject.Inject
 
 class MainPresenter @Inject constructor(
-        private val detailNavigator: DetailNavigator) : BasePresenter(), IMain.Presenter {
+        private val detailNavigator: DetailNavigator) : BasePresenter() {
 
-    override fun onDetailButtonClick() = detailNavigator.navigate()
+    fun onDetailButtonClick() = detailNavigator.navigate()
 }

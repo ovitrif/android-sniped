@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.view_app_bar.*
 
 class DetailActivity : BaseActivity(), IDetail.View {
 
-    override lateinit var presenter: IDetail.Presenter
+    override lateinit var presenter: DetailPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

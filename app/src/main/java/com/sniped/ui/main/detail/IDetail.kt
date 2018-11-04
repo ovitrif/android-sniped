@@ -1,7 +1,6 @@
 package com.sniped.ui.main.detail
 
 import androidx.annotation.StringRes
-import com.sniped.ui.Presentable
 
 interface IDetail {
 
@@ -10,10 +9,5 @@ interface IDetail {
         var dataText: String
         fun setInputError(@StringRes errorMessage: Int)
         fun clearInputError()
-    }
-
-    interface Presenter : Presentable {
-        fun onGetButtonClick()
-        fun onBackPressed()
     }
 }
