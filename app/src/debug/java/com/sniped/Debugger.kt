@@ -1,13 +1,17 @@
 package com.sniped
 
 import android.app.Application
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.flipper.plugins.inspector.DescriptorMapping
 import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
+import com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin
 import com.facebook.soloader.SoLoader
+import com.sniped.core.config.AppConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 
@@ -26,6 +30,7 @@ object Debugger {
             val client = AndroidFlipperClient.getInstance(app)
             client.addPlugin(InspectorFlipperPlugin(app, DescriptorMapping.withDefaults()))
             client.addPlugin(networkPlugin)
+            client.addPlugin(SharedPreferencesFlipperPlugin(app, AppConfig.FILE_NAME_PREFS))
             client.start()
         }
     }

@@ -13,6 +13,7 @@ import com.sniped.R
 import com.sniped.api.ApiService
 import com.sniped.api.ApiServiceBuilder
 import com.sniped.core.Threads
+import com.sniped.core.config.AppConfig
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -52,5 +53,5 @@ class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideSharedPreferences(): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+    fun provideSharedPreferences(): SharedPreferences = context.getSharedPreferences(AppConfig.FILE_NAME_PREFS, Context.MODE_PRIVATE)
 }
