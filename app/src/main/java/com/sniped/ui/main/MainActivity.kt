@@ -26,7 +26,7 @@ class MainActivity : BaseActivity(), IMain.View {
         presenter = component.presenter()
 
         initView()
-        presenter.onShow()
+        presenter.onAttach()
     }
 
     override fun onBackPressed() {

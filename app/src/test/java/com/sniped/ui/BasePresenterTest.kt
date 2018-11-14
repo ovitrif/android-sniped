@@ -27,7 +27,7 @@ class BasePresenterTest {
 
     @Test
     fun onShow_never_throws() {
-        presenter.onShow()
+        presenter.onAttach()
     }
 
     @Test
@@ -35,7 +35,7 @@ class BasePresenterTest {
         presenter.disposeBag += Single.just(true).subscribe()
         assertThat(presenter.disposeBag.size()).isOne()
 
-        presenter.onHide()
+        presenter.onDetach()
 
         assertThat(presenter.disposeBag.size()).isZero()
     }

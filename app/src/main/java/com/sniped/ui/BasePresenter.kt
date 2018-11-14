@@ -6,10 +6,10 @@ abstract class BasePresenter : Presentable {
 
     internal val disposeBag = CompositeDisposable()
 
-    override fun onShow() {
+    override fun onAttach() {
     }
 
-    override fun onHide() {
+    override fun onDetach() {
         disposeBag.clear()
     }
 }

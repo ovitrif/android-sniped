@@ -19,6 +19,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter.onHide()
+        presenter.onDetach()
     }
 }

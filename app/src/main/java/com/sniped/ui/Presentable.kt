@@ -5,8 +5,8 @@ package com.sniped.ui
  */
 interface Presentable {
 
-    fun onShow() = Unit
-    fun onHide() = Unit
+    fun onAttach() = Unit
+    fun onDetach() = Unit
 
     companion object {
         val NULL = object : Presentable {}

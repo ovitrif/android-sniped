@@ -30,7 +30,7 @@ class DetailActivity : BaseActivity(), IDetail.View {
         presenter = component.presenter()
 
         initView()
-        presenter.onShow()
+        presenter.onAttach()
     }
 
     override fun onBackPressed() = presenter.onBackPressed()
