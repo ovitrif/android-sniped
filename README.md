@@ -1,9 +1,9 @@
+<img align="right" width="110" height="110" src="https://raw.githubusercontent.com/ovitrif/android-sniped/master/assets/logo.svg?sanitize=true">
+
 # android-sniped
 [![Build Status](https://img.shields.io/travis/com/ovitrif/android-sniped/master.svg)](https://travis-ci.com/ovitrif/android-sniped)
 [![Coverage](https://img.shields.io/codecov/c/github/ovitrif/android-sniped/master.svg)](https://codecov.io/gh/ovitrif/android-sniped)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)][license-url]
-
-<img align="right" width="180" height="180" src="https://raw.githubusercontent.com/ovitrif/android-sniped/master/assets/logo.svg?sanitize=true">
 
 ## Introduction
 
