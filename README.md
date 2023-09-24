@@ -1,13 +1,13 @@
 <img align="right" width="110" height="110" src="https://raw.githubusercontent.com/ovitrif/android-sniped/master/assets/logo.svg?sanitize=true">
 
-# Android SNIPED
+# Android SNIPED · ⚠️ deprecated
 [![Build Status](https://img.shields.io/travis/com/ovitrif/android-sniped/master.svg)](https://travis-ci.com/ovitrif/android-sniped)
 [![Coverage](https://img.shields.io/codecov/c/github/ovitrif/android-sniped/master.svg)](https://codecov.io/gh/ovitrif/android-sniped)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)][license-url]
 
 ## Introduction
 
-**SNIPED** (Screens Navigators Interactors Presenters Entities with Dependency injection, etc...) is a **clean architecture** approach to Android application development.
+**SNIPED** (Screens Navigators Interactors Presenters Entities with Dependency injection, etc...) is a **clean architecture** approach to Android application development using the MVP Model-View-Presenter pattern.
 
 It is an evolution of the popular MVP (Model View Presenter) pattern  with influences from the VIPER (View Interactor Presenter Entity Router) architecture on iOS.
 
